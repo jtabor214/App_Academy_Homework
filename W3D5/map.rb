@@ -35,7 +35,7 @@ class Map
     end
 
     def show
-        puts @stack
+        return @stack[-1]
     end
 
 end
@@ -44,3 +44,4 @@ a = Map.new([["fruit", "apple"], ["pet", "dog"], ["cloth", "wool"], ["drink", "t
 p a.get("pet")
 p a.set("pet", "cat")
 p a.delete("cloth")
+p a.show
