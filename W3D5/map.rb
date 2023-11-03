@@ -40,3 +40,4 @@ end
 
 a = Map.new([["fruit", "apple"], ["pet", "dog"], ["cloth", "wool"], ["drink", "tea"]])
 p a.get("fruit")
+p a.set("pet", "cat")
