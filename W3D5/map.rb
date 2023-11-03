@@ -37,3 +37,6 @@ class Map
     end
 
 end
+
+a = Map.new([["fruit", "apple"], ["pet", "dog"], ["cloth", "wool"], ["drink", "tea"]])
+p a.get("fruit")
