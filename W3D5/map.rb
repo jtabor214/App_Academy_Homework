@@ -1,5 +1,7 @@
 class Map 
 
+    attr_reader :stack
+
     def initialize(hash_array)
         @stack = hash_array
     end
@@ -8,11 +10,11 @@ class Map
         @stack.each do |hash|
             if hash[0] == key
                 hash[0] = value
-            else
-                hash[key] = value
+            # else
+            #     hash[key] = value
             end
         end
-        @stack
+        # @stack
     end
 
     def get(key)
@@ -24,20 +26,21 @@ class Map
     end
 
     def delete(key)
-        @stacks.each do |hash|
+        @stack.each_with_index do |hash, idx|
             if hash[0] == key
-                hash.delete_at(0)
+                @stack.delete_at(idx)
             end
         end
-        @stacks
+        @stack
     end
 
     def show
-        puts @stacks
+        puts @stack
     end
 
 end
 
 a = Map.new([["fruit", "apple"], ["pet", "dog"], ["cloth", "wool"], ["drink", "tea"]])
-p a.get("fruit")
+p a.get("pet")
 p a.set("pet", "cat")
+p a.delete("cloth")
