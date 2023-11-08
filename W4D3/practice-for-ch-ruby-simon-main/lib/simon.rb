@@ -13,12 +13,22 @@ class Simon
   end
 
   def take_turn
+    self.show_sequence 
   end
 
   def show_sequence
+    add_random_color
   end
 
   def require_sequence
+    p "What was the color?"
+
+    @seq.each do |color|
+      guess = gets.chomp
+      if guess != color
+        @game_over = true
+      end
+    end
   end
 
   def add_random_color
