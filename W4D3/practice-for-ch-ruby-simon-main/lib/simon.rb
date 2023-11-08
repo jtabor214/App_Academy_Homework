@@ -47,9 +47,11 @@ class Simon
   end
 
   def round_success_message
+    p "Nice! Watch closely!"
   end
 
   def game_over_message
+    p "Better luck next time!"
   end
 
   def reset_game
