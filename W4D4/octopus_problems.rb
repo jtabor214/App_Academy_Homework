@@ -44,3 +44,26 @@ class Array
     end
 
 end
+
+class Array
+
+    def clever_octopus(target) #target would be the longest fish
+        return nil if self.empty?
+        mid = self.length / 2
+        return mid if self[mid] == target
+
+        left = self[0...mid]
+        right = self[mid + 1..-1]
+
+        if self[mid] == target
+            return left.cleaver_octopus(target)
+        else
+            result = right.cleaver_octopus(target)
+                if result.nil?
+                    return nil
+                else
+                    result + mid + 1
+                end
+        end
+    end
+end
