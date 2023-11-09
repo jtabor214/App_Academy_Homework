@@ -14,4 +14,33 @@ end
 
 fishes = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 
  'fiiiissshhhhhh']
+class Array
 
+    def dominant_octopus(&prc)
+        prc || Proc.new { |x, y| x<=>y }
+        return self if self.length <= 1
+
+        mid = self.length / 2
+        left = self[0...mid]
+        right = self[mid..-1]
+
+        sorted_left = left.dominant_octopus(&prc)
+        sorted_right = right.dominant_octopus(&prc)
+
+        Array.merge(sorted_left, sorted_right, &prc)
+    end
+
+    def self.merge(left, right, &prc)
+        array = []
+
+        until left.empty? || right.empty?
+            if prc.call(left.first, right.first) == -1
+                array << left.shift
+            else
+                array << right.shift
+            end
+        end
+        array + left + right
+    end
+
+end
